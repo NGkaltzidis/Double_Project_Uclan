@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="css/nav.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/register.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="Assets/fonts/font.js" crossorigin="anonymous"></script>
+    <%- include('partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="container_title">
+        <h2>One step closer to become a JS developer 👍</h2>
+    </div>
+
+    <form id="register">
+        <div class="form_objects">
+            <div id="msg_txt"></div>
+        </div>
+
+        <div class="form_objects">
+            <label for="email">First Name</label>
+            <input type="text" name="name" placeholder="First Name" required>
+        </div>
+        <div class="form_objects">
+            <label for="email">Last Name</label>
+            <input type="text" name="lastname" placeholder="Last Name" required>
+        </div>
+        <div class="form_objects">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="form_objects">
+            <label for="email">Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="form_objects">
+            <label for="email">Confirm Password</label>
+            <input type="password" name="password_repeat" placeholder="Confirm Password" required>
+        </div>
+
+        <div class="form_objects">
+            <button class="form_submit_btn" type="submit">Register</button>
+        </div>
+    </form>
+
+    <div class="after-from-msg">Already a user? <a href="login">Login</a></div>
+</div>
+
+<%- include('partials/firebase.ejs') %>
+
+<script src="js/register.js"></script>
+</body>
+</html>

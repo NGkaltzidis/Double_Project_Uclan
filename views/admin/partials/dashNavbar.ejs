@@ -1,0 +1,25 @@
+<nav class="page_nav">
+    <div class="nav_bar">
+        <div class="nav_logo">
+            <a class="nav_link" href="/admin"><img id="logo" src="/Assets/Images/logo.png"></a>
+        </div>
+
+        <div class="nav_page_links">
+            <a class="nav_link" href="new"><i class="fas fa-plus"></i> Insert question</a>
+            <div class="nav_dropdown">
+                <a class="nav_dropBtn nav_link" id="dropdown"><span class="user-logo"><%= name[0].toUpperCase() %></span> <%= name %></a>
+
+                <div class="nav_dropdown_content" id="drop_content" style="visibility: hidden">
+                    <a class="nav_link" href="/"><i class="fas fa-sign-out-alt"></i> Exit Dashboard</a>
+                    <a class="nav_link" href="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<notifications id="notification">
+
+</notifications>
+
+<script src="js/dashNavbar.js"></script>

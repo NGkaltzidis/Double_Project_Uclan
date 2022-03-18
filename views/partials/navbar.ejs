@@ -1,0 +1,48 @@
+<nav class="page_nav">
+    <div class="nav_bar">
+        <div class="nav_logo">
+            <a class="nav_link" href="/"><img id="logo" src="/Assets/Images/logo.png"></a>
+        </div>
+
+        <div class="nav_page_links">
+            <% if (user_loggedIn === false) { %>
+                <a class="nav_link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a class="nav_link" href="/register"><i class="fas fa-user-plus"></i> Register</a>
+            <% } else { %>
+                    <a class="nav_link" href="/play">▶ Play</a>
+                    <a class="nav_link" href="/multiplayer">🕹️ Multiplayer</a>
+                    <a class="nav_link" href="/scoreboard"><i class="fas fa-list-ol"></i> Scoreboard</a>
+
+                    <div class="nav_dropdown">
+                        <a class="nav_dropBtn nav_link" id="dropdown"><span class="user-logo"><%= name[0].toUpperCase() %></span> <%= name %></a>
+
+                        <div class="nav_dropdown_content" style="visibility: hidden" id="drop_content">
+                                <div class="nav_side">
+                                    <a class="nav_link nav_dropSideBtn" id="side_btn"><i class="fas fa-cog"></i> Settings</a>
+                                    <div id="side_nav" style="display: none" class="na_side_content">
+                                        <a class="nav_link" href="/settings"><i class="fas fa-user-cog"></i> Profile</a>
+                                        <a class="nav_link" href="/settings/password"><i class="fas fa-unlock-alt"></i> Password</a>
+                                    </div>
+                                </div>
+                            <% if(admin === true) { %>
+                                <a class="nav_link" href="/admin"><i class="fas fa-columns"></i> Dashboard</a>
+                            <% } %>
+                            <a class="nav_link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<div id="notification">
+
+</div>
+
+<% if(user_loggedIn === true) { %>
+    <script>const uid = "<%= uid %>";</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="/js/navbar.js"></script>
+<% } %>

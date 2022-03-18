@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="/css/nav.css" type="text/css" rel="stylesheet">
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/css/dashboard.css" type="text/css" rel="stylesheet">
+
+    <script src="/Assets/CodeEditor/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/Assets/CodeEditor/lib/codemirror.css">
+    <link rel="stylesheet" href="/Assets/CodeEditor/theme/darcula.css">
+    <script src="/Assets/CodeEditor/addon/edit/closebrackets.js"></script>
+    <script src="/Assets/CodeEditor/mode/javascript/javascript.js"></script>
+    <script src="/Assets/fonts/font.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/Assets/simditor/simditor.css" />
+
+    <script type="text/javascript" src="/Assets/simditor/jquery.min.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/module.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/hotkeys.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/uploader.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/simditor.js"></script>
+
+    <%- include('../partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/dashNavbar.ejs') %>
+<div class="container">
+    <div class="container_title">
+        <h2>Edit Question</h2>
+    </div>
+
+    <div class="container_body">
+        <form id="newQuestion">
+            <h2>Public: </h2>
+            <span id="error_txt"></span>
+            <div class="form_objects">
+                <label for="email">Task Description</label>
+                <input type="text" name="task" placeholder="Enter Task Description" value="<%= data.question %>" autocomplete="off" required>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Level Of Difficulty</label>
+                <input type="number" step="any" min="1" max="10" name="difficulty" placeholder="Level Of Difficulty (1-10)" value="<%= data.difficulty %>" autocomplete="off" required>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Documentation</label>
+                <textarea id="textEditor"><%= (data.documentation) ? data.documentation.toString() : '' %></textarea>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Code Editor</label>
+                <textarea id="usr_code"><%= data.code.toString() %></textarea>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Argc</label>
+                <input type="text" name="args" value="<%= (data.argc) ? data.argc.join(' ') : '' %>" placeholder="Ex 10 3" autocomplete="off">
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Argv</label>
+                <%
+                    argv = '';
+                    if(data.argv) {
+                        for (i = 0; i < data.argv.length; i++) {
+                            argv += data.argv[i].replace(/\s/g, '_') + ' ';
+                        }
+                    }
+                %>
+                <input type="text" name="argv" value="<%= argv.trim() %>" placeholder="Ex string coding" autocomplete="off">
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Expected output</label>
+                <input type="text" name="complete" placeholder="Ex max number 5" value="<%= data.correct %>" autocomplete="off" required>
+            </div>
+
+            <h2>Hidden Data (Validation): </h2>
+            <div id="tasks">
+            <% data.validation.testCases.forEach((item, index) => { %>
+            <div id="test<%= index + 1%>">
+
+                    <div class="form_head_text">
+                        <h3>TestCase <%= index + 1 %></h3>
+                        <% if (index > 0) { %>
+                        <span class="close" style="display: <%= (index === data.validation.testCases.length-1) ? 'block': 'none' %>" onclick="removeTest('test<%= index + 1%>')"><i class="fas fa-times"></i></span>
+                        <% } %>
+                    </div>
+                    <div class="form_objects">
+                        <label for="email">Argc</label>
+                        <input type="text" name="args<%= index + 1%>" placeholder="Ex 10 3" value="<%= (item.argc) ? item.argc.join(' ') : '' %>" autocomplete="off">
+                    </div>
+
+                    <div class="form_objects">
+                        <label for="email">Argv</label>
+                        <%
+                            argv = '';
+                            if(data.argv) {
+                                for (i = 0; i < item.argv.length; i++) {
+                                    argv += item.argv[i].replace(/\s/g, '_') + ' ';
+                                }
+                            }
+                        %>
+                        <input type="text" name="argv<%= index + 1%>" value="<%= argv.trim() %>" placeholder="Ex string coding" autocomplete="off">
+                    </div>
+
+                    <div class="form_objects">
+                        <label for="email">Expected output</label>
+                        <input type="text" name="complete<%= index + 1%>" value="<%= item.correct %>" placeholder="Ex max number 5" autocomplete="off" required>
+                    </div>
+                </div>
+
+            <% })%>
+            </div>
+            <div class="form_objects right">
+                <button onclick="loadMoreTests()" class="form_submit_btn testcases" id="moreBtn" type="button"><i class="fas fa-plus"></i><span>More TestCases</span></button>
+            </div>
+
+            <div class="form_btns">
+                <div class="form_objects btns">
+                    <input class="form_submit_btn test_btn" onclick="this.setAttribute('test', true)" type="submit" value="Test">
+                </div>
+
+                <div class="form_objects btns">
+                    <input class="form_submit_btn" type="submit" value="Save">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/cookies.js"></script>
+<script>
+    let data = <%- JSON.stringify(data) %>;
+</script>
+<script src="js/editQuestion.js"></script>
+
+
+</body>
+</html>

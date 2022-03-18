@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="/css/nav.css" type="text/css" rel="stylesheet">
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/css/register.css" type="text/css" rel="stylesheet">
+    <script src="/Assets/fonts/font.js" crossorigin="anonymous"></script>
+    <%- include('partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="container_title">
+        <h2>Change Password</h2>
+    </div>
+
+    <form onsubmit="updatePassword(this)">
+        <div class="form_objects">
+            <span id="error_txt"></span>
+        </div>
+
+        <div class="form_objects">
+            <label for="password">Old Password</label>
+            <input type="password" name="old-password" placeholder="Password" required>
+        </div>
+
+        <div class="form_objects">
+            <label for="password">New Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="form_objects">
+            <label for="password">Repeat New Password</label>
+            <input type="password" name="repeat-password" placeholder="Password" required>
+        </div>
+
+        <div class="form_objects">
+            <input class="form_submit_btn" type="submit" value="Update">
+        </div>
+    </form>
+</div>
+
+<%- include('partials/firebase.ejs') %>
+<script>
+    let email = '<%= email %>';
+</script>
+<script src="/js/settings.js"></script>
+
+</body>
+</html>

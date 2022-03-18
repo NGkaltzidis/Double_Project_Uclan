@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link href="/css/nav.css" type="text/css" rel="stylesheet">
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/css/playground.css" type="text/css" rel="stylesheet">
+    <script src="/Assets/fonts/font.js" crossorigin="anonymous"></script>
+
+
+    <script src="/Assets/CodeEditor/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/Assets/CodeEditor/lib/codemirror.css">
+    <link rel="stylesheet" href="/Assets/CodeEditor/theme/darcula.css">
+    <script src="/Assets/CodeEditor/addon/edit/closebrackets.js"></script>
+    <script src="/Assets/CodeEditor/mode/javascript/javascript.js"></script>
+
+    <script src="/Assets/fonts/font.js" crossorigin="anonymous"></script>
+
+    <%- include('partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
+
+<script>let questions = <%- JSON.stringify(questions) %></script>
+
+
+    <div class="container">
+
+        <div class="palyground">
+
+            <div class="output">
+                <div class="display_body">
+                    <% if (questions.documentation) { %>
+                        <div class="documentation"><%- questions.documentation %></div>
+                    <% } %>
+                </div>
+
+                <div class="display_body todo">
+                    <% if (questions.type !== 'test') { %>
+                        <button id="submitBtn">Submit</button>
+                    <% } else { %>
+                        <button id="submitBtn">Test</button>
+                    <% } %>
+
+                    <h2 id="task_title">// TODO:</h2>
+                    <!--                    <input class="taskCheck" type="checkbox">-->
+                    <div id="task">
+                        <%= questions.question + '\n' %>
+
+                        <% if(questions.argc !== undefined || questions.argv !== undefined) { %>
+                            <h3 id="task_title">// Sample Inputs:</h3>
+                        <% } %>
+
+                        <% if(questions.argc !== undefined) {
+                        questions.argc.forEach(function (input, i) { %>
+                            <p><%= '// argc['+i+'] = "' + input + '"' %></p>
+                        <%      })
+                        } %>
+
+                        <% if(questions.argv !== undefined) {
+                        questions.argv.forEach(function (input, i) { %>
+                            <p><%= '// argv['+i+'] = "' + input + '"' %></p>
+                        <%      })
+                        }%>
+
+                        <h3 id="task_title">// Sample output:</h3>
+                        <p><%= '// ' + questions.correct + '\n' %></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output">
+
+                <div class="coding">
+                    <textarea id="usr_code"></textarea>
+                </div>
+
+
+                <div class="display_body">
+                    <div class="run-result">
+                        <h2>Result:</h2>
+                        <button id="runCode">Run  <i class="fas fa-play" aria-hidden="true"></i></button>
+                    </div>
+                    <hr>
+                    <iframe frameborder="0" src="/playground/run/code" id="outputCode"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/js/playground.js"></script>
+<script>
+    let task = questions.key;
+</script>
+
+</body>
+</html>

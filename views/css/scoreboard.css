@@ -1,0 +1,66 @@
+.container{
+    max-width: 1000px;
+    background-color: #141414;
+    border: 1px solid #BBB529;
+    box-shadow: 3px 9px 32px #bbb5291c;
+    padding: 20px;
+    margin: 16px auto;
+    border-radius: 10px;
+}
+
+.users {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+    height: 80px;
+    margin: 0;
+}
+
+.index {
+    border: 1px solid;
+    padding: 5px 12px;
+    margin-right: 30px;
+    width: 80px;
+    text-align: center;
+}
+
+.name {
+    width: 100%;
+}
+
+.time {
+    margin-right: 100px;
+    width: 150px;
+}
+
+.score {
+    width: 150px;
+    text-align: center;
+}
+
+.users.active {
+    background: #2a2a2a;
+}
+
+.ph-picture {
+    background: transparent;
+}
+
+.headers {
+    display: flex;
+    font-size: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.p_index {
+    width: 80px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.p_score {width: 150px;text-align: center;}

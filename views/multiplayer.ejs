@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplayer</title>
+    <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+    <link href="css/nav.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/multiplayer.css" type="text/css" rel="stylesheet">
+    <script src="Assets/fonts/font.js" crossorigin="anonymous"></script>
+</head>
+<body user_id="<%= uid %>" onload="getGames()">
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="multiplayer_form">
+
+        <div class="form_objects">
+            <h1>Play with friends</h1>
+            <h3 id="online_players">Online Players 0</h3>
+        </div>
+
+        <div class="form_objects">
+            <label id="searchLabel">Search for player</label>
+            <input type="search" id="searchIpt" autocomplete="off" placeholder="Type user name or email" name="search" required>
+
+            <div class="searchList">
+                <ul></ul>
+            </div>
+
+        </div>
+
+        <div id="gameReady">
+            <div class="form_objects start_game">
+                <input onclick="cancelGame()" class="form_cancel_btn" type="button" value="Cancel">
+                <input class="form_submit_btn" id="startBtn" type="button" value="Start Game">
+            </div>
+        </div>
+
+        <div id="beforeGame">
+            <div class="form_objects">
+<!--                <p class="form_separate">OR</p>-->
+<!--                <input class="form_submit_btn" type="button" value="Random Player">-->
+            </div>
+        </div>
+    </div>
+
+    <div class="recent_games">
+        <div class="games_head">
+            <h1>Recent Games</h1>
+        </div>
+        <div class="games_row">
+            <ul>
+                <% for(let i = 0; i < 4; i++) { %>
+                    <li class="">
+                        <div class="ph-item">
+                            <div class="ph-picture games"></div>
+                        </div>
+                    </li>
+                <% } %>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/cookies.js"></script>
+<script src="js/multiplayer.js"></script>
+
+
+
+</body>
+</html>

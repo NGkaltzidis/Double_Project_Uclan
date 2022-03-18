@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+    <link href="css/nav.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/play.css" type="text/css" rel="stylesheet">
+    <script src="Assets/fonts/font.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
+
+<div class="container">
+    <div class="moduleInfo">
+        <img class="module_image" src="images/js.png" alt="Javascript">
+
+        <div class="module-detail">
+        <h2 class="module_title">
+            JavaScript
+        </h2>
+
+        <p id="course-description">Learn all the basic features of JavaScript, including making your website more interactive, changing website content, validating forms, and so much more.</p>
+        </div>
+    </div>
+
+
+
+    <div id="moduleItems" class="moduleItems">
+        <ul>
+            <% for(let i = 0; i < 10; i++) { %>
+            <li class="">
+                <div class="ph-item">
+                    <div class="ph-picture questions"></div>
+                </div>
+            </li>
+                <% } %>
+
+        </ul>
+    </div>
+</div>
+
+<script src="js/play.js"></script>
+</body>
+</html>

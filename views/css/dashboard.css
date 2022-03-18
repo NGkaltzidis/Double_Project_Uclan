@@ -1,0 +1,120 @@
+.container {
+    max-width: 1000px;
+    padding: 10px;
+    margin: 2% auto;
+    background-color: #141414;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: 1px solid #BBB529;
+    box-shadow: 3px 9px 32px #bbb5291c;
+}
+
+.container_title{
+    text-align: center;
+    padding: 10px;
+}
+
+.form_objects {
+    width: 100%;
+    padding: 10px;
+}
+
+.form_objects input, button {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #6c6c6c;
+    outline: none;
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    background: #2B2B2B;
+    border-radius: 4px;
+    color: #A9B7C6;
+}
+
+.form_objects label {
+    font-size: 15px;
+}
+
+.form_submit_btn {
+    background-color: #04AA6D !important;
+    color: white !important;
+    font-size: 20px !important;
+    border: none !important;
+    padding: 10px !important;
+    height: auto !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form_submit_btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 6px -1px #04aa6d1a;
+}
+
+#error_txt {
+    color: red;
+    text-align: center;
+}
+
+.form_head_text {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    width: 98%;
+    justify-content: space-between;
+}
+
+span.close {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form_objects.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+button#moreBtn {
+    width: fit-content;
+    background-color: #2B2B2B !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+    width: 170px;
+}
+
+button#moreBtn span {
+    padding-left: 10px;
+}
+
+.form_btns {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+input.form_submit_btn.test_btn {
+    width: 170px;
+    background-color: #2B2B2B !important;
+}
+
+input.form_submit_btn {
+    width: 170px;
+    font-size: 16px !important;
+}
+
+.form_objects.btns {
+    width: fit-content;
+}
+
+.CodeMirror.cm-s-darcula {
+    margin-top: 5px;
+}
+
+h2 {
+    color: #fff;
+}

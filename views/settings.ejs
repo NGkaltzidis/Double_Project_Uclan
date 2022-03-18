@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="css/nav.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/register.css" type="text/css" rel="stylesheet">
+    <script src="Assets/fonts/font.js" crossorigin="anonymous"></script>
+    <%- include('partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="container_title">
+        <h2>Edit Profile Settings</h2>
+    </div>
+
+    <form onsubmit="update(this)">
+        <div class="form_objects">
+            <span id="error_txt"></span>
+        </div>
+
+        <div class="form_objects">
+            <label for="email">First Name</label>
+            <input type="text" name="name" placeholder="First Name" required value="<%= name %>">
+        </div>
+        <div class="form_objects">
+            <label for="email">Last Name</label>
+            <input type="text" name="lastname" placeholder="Last Name" required value="<%= lastname %>">
+        </div>
+
+        <div class="form_objects">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Your email address" name="email" readonly value="<%= email %>">
+        </div>
+
+        <div class="form_objects">
+            <label for="password">Enter your password to save the changes</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="form_objects">
+            <input class="form_submit_btn" type="submit" value="Update">
+        </div>
+
+
+    </form>
+</div>
+
+<%- include('partials/firebase.ejs') %>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

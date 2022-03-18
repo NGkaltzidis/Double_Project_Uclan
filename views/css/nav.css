@@ -1,0 +1,183 @@
+.page_nav {
+    background-color: #2B2B2B;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #04AA6D;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+}
+
+.nav_page_links {
+    width: 100%;
+    text-align: right;
+}
+
+.nav_link {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #A9B7C6;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+
+.nav_link:hover {
+    color: #FFFFFF;
+}
+
+.nav_dropdown {
+    display: flex;
+    float: right;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_dropdown:hover .nav_dropBtn  {
+    color: #FFFFFF;
+}
+
+.nav_dropdown_content {
+    visibility: hidden;
+    position: absolute;
+    background-color: #2B2B2B;
+    top: 70px;
+    min-width: 170px;
+    z-index: 10000000000000000000000;
+    right: 10px;
+    border: 1px solid #04AA6D;
+    box-shadow: 3px 9px 32px #04aa6d1a;
+    height: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .2s;
+}
+
+
+.nav_dropdown_content a{
+    float: left;
+    color: inherit;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+    width: 100%;
+}
+
+.nav_side {
+    position: relative;
+}
+
+.na_side_content {
+    background-color: #2B2B2B;
+    display: none;
+    position: absolute;
+    left: -140px;
+    top: 0;
+    width: 140px;
+    border: 1px solid #04AA6D;
+    box-shadow: 3px 9px 32px #04aa6d1a;
+    z-index: 10000000000000000000000;
+}
+
+.nav_side:hover:hover .nav_dropSideBtn {
+    color: #fff;
+}
+
+.nav_page_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-right: 50px;
+}
+
+.nav_logo {
+    margin-left: 50px;
+}
+
+img#logo {
+    width: 64px;
+}
+
+span.user-logo {
+    display: inline-flex;
+    background: #BBB529;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#notification {
+    right: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100000000000000000000;
+}
+
+.notification_invite {
+    transition: all ease .3s;
+    padding: 10px;
+    width: 300px;
+    margin: 10px;
+    margin-right: -300px;
+    background: #1a1a1a;
+    border: 1px solid #04AA6D;
+}
+
+.notification_invite.active {
+    margin-right: 10px;
+}
+
+
+.not_buttons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+button#not_decline {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    background: #2B2B2B;
+    border: 2px solid #6c6c6c;
+    outline: none;
+    color: #fff;
+    appearance: none;
+    cursor: pointer;
+}
+
+button#not_accept {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    background: #04AA6D;
+    border: 2px solid #04AA6D;
+    outline: none;
+    color: #fff;
+    appearance: none;
+    cursor: pointer;
+}
+
+.notification_invite h3 {
+    text-align: center;
+}

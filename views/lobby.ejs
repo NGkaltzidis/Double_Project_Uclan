@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplayer</title>
+    <link href="/css/nav.css" type="text/css" rel="stylesheet">
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/css/multiplayer.css" type="text/css" rel="stylesheet">
+    <script src="/Assets/fonts/font.js" crossorigin="anonymous"></script>
+</head>
+<body user_id="<%= uid %>">
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+    <div class="lobby_form" id="lobby_welcome">
+        <% if(creator) { %>
+        <h1 id="lobby_log">Waiting <%= enemy %>  To Join.</h1>
+        <div class="lobby_btns">
+            <input class="form_submit_cancel" id="cancel" type="button" value="Cancel">
+            <input class="form_submit_btn" type="button" id="start" value="Start Game">
+        </div>
+        <% } else { %>
+                <h1 id="lobby_log">Waiting <%= enemy %> To Start The Game.</h1>
+        <% } %>
+    </div>
+
+    <div id="lobby_end" style="display: none">
+        <h1 id="status"></h1>
+        <div id="score_end"></div>
+    </div>
+
+    <div class="lobby_chat">
+        <div id="chat">
+
+        </div>
+
+        <div id="chat_input" class="form_objects">
+            <input type="text" id="chat_msg">
+            <input type="submit" value="Sent" id="sent">
+        </div>
+    </div>
+</div>
+
+<div class="task" style="display: none">
+    <div class="codeNav">
+        <div id="score"></div>
+        <div id="time_left"><i class="fas fa-clock"></i> 15:00</div>
+    </div>
+    <iframe id="task" src="play/<%= question %>"></iframe>
+</div>
+
+<script>
+    const sessionID = "<%= session_id %>";
+</script>
+<script src="/js/lobby.js"></script>
+</body>
+</html>

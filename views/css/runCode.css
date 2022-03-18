@@ -1,0 +1,64 @@
+* {box-sizing: border-box}
+body {
+    overflow: auto;
+    background: #2B2B2B;
+    color: #A9B7C6;
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    margin: 0;
+    padding: 20px;
+}
+
+pre#output {
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    max-height: 100%;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    white-space: pre-wrap;
+    overflow: auto;
+    margin: 0;
+}
+
+pre#errors {
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    max-height: 100%;
+    color: red;
+    width: 100%;
+    margin: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.validation {
+}
+
+#correct {
+    display: none;
+    color: green;
+}
+
+#wrong {
+    display: none;
+    color: red;
+}
+
+

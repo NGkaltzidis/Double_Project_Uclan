@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="/css/nav.css" type="text/css" rel="stylesheet">
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/css/dashboard.css" type="text/css" rel="stylesheet">
+
+    <script src="/Assets/CodeEditor/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/Assets/CodeEditor/lib/codemirror.css">
+    <link rel="stylesheet" href="/Assets/CodeEditor/theme/darcula.css">
+    <script src="/Assets/CodeEditor/addon/edit/closebrackets.js"></script>
+    <script src="/Assets/CodeEditor/mode/javascript/javascript.js"></script>
+    <script src="/Assets/fonts/font.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/Assets/simditor//simditor.css" />
+
+    <script type="text/javascript" src="/Assets/simditor/jquery.min.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/module.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/hotkeys.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/uploader.js"></script>
+    <script type="text/javascript" src="/Assets/simditor/simditor.js"></script>
+
+    <%- include('../partials/headers.ejs') %>
+</head>
+<body>
+<%- include('partials/dashNavbar.ejs') %>
+<div class="container">
+    <div class="container_title">
+        <h2>New Question</h2>
+    </div>
+
+    <div class="container_body">
+        <form id="newQuestion">
+            <h2>Public: </h2>
+            <span id="error_txt"></span>
+            <div class="form_objects">
+                <label for="email">Task Description</label>
+                <input type="text" name="task" placeholder="Enter Task Description" autocomplete="off" required>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Level Of Difficulty</label>
+                <input type="number" step="any" min="1" max="10" name="difficulty" placeholder="Level Of Difficulty (1-10)" autocomplete="off" required>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Documentation</label>
+                <textarea id="textEditor"></textarea>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Code Editor</label>
+                <textarea id="usr_code"></textarea>
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Argc</label>
+                <input type="text" name="args" placeholder="Ex 10 3" autocomplete="off">
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Argv</label>
+                <input type="text" name="argv" placeholder="Ex string coding" autocomplete="off">
+            </div>
+
+            <div class="form_objects">
+                <label for="email">Expected output</label>
+                <input type="text" name="complete" placeholder="Ex max number 5" autocomplete="off" required>
+            </div>
+
+            <h2>Hidden Data (Validation): </h2>
+            <div id="tasks">
+                <h3>TestCase 1</h3>
+                <div class="form_objects">
+                    <label for="email">Argc</label>
+                    <input type="text" name="args1" placeholder="Ex 10 3" autocomplete="off">
+                </div>
+
+                <div class="form_objects">
+                    <label for="email">Argv</label>
+                    <input type="text" name="argv1" placeholder="Ex string coding" autocomplete="off">
+                </div>
+
+                <div class="form_objects">
+                    <label for="email">Expected output</label>
+                    <input type="text" name="complete1" placeholder="Ex max number 5" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div class="form_objects right">
+                <button onclick="loadMoreTests()" class="form_submit_btn testcases" id="moreBtn" type="button"><i class="fas fa-plus"></i><span>More TestCases</span></button>
+            </div>
+
+            <div class="form_btns">
+                <div class="form_objects btns">
+                    <input class="form_submit_btn test_btn" onclick="this.setAttribute('test', true)" type="submit" value="Test">
+                </div>
+
+                <div class="form_objects btns">
+                    <input class="form_submit_btn" type="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/cookies.js"></script>
+<script src="js/newQuestion.js"></script>
+
+</body>
+</html>
