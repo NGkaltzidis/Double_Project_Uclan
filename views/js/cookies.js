@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 // Code used from w3 schools   --   : https://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname,cvalue,exdays) {
     const d = new Date();

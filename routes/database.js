@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 // Import the functions you need from the SDKs you need
 const { initializeApp } = require('firebase/app');
 

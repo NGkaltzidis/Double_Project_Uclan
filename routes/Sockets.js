@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 const multiplayer = require("./multiplayer");
 const fs = require('fs')
 

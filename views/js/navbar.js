@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 let notifications = document.getElementById('notification');
 let side_navBtn = document.getElementById('side_btn');
 let dropdown_btn = document.getElementById('dropdown');

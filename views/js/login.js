@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 // Get login form && submit event
 document.getElementById("login")
     .addEventListener("submit", (event) => {

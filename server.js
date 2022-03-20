@@ -1,3 +1,10 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
+
 const cookieParser = require("cookie-parser");
 const csrf = require("csurf");
 const admin = require("firebase-admin");

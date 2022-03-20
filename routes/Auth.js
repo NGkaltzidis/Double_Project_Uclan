@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 const express = require('express');
 const admin = require("firebase-admin");
 const {ref, set, getDatabase, get, child} = require("firebase/database");

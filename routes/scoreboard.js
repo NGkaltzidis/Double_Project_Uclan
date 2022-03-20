@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 const express = require('express');
 const moment = require('moment-timezone');
 const momentDurationFormatSetup = require("moment-duration-format");

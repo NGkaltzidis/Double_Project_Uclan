@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 // Document content loaded
 document.addEventListener('DOMContentLoaded', async () => {
     await fetch('play/tasks')

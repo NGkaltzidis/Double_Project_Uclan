@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 let moreBtn = document.getElementById('moreBtn');
 let tasks =  document.getElementById('tasks');
 let items = 1;
@@ -20,12 +26,15 @@ var textEditor = new Simditor({
 
 editor.setValue('function main(argc, argv) {\n\t// Insert Code Bellow\n}')
 
+// Load more testcases
 function loadMoreTests() {
+    // Check if testcases are more than 1
     if(items > 1) {
+        // Hide the last remove button of testcases
         let item = document.getElementById(`test${items}`);
         item.getElementsByClassName('close')[0].style.display = 'none';
     }
-
+    // Increment testcases
     items++;
     let div = document.createElement("div");
     div.id = `test${items}`;
@@ -33,7 +42,7 @@ function loadMoreTests() {
             <div id="test${items}">
                 <div class="form_head_text">
                     <h3>TestCase ${items}</h3>
-                    <span class="close" onclick="removeTest('test${items}')"><i class="fas fa-times"></i></span>
+                    <span class="close" onclick="removeTest('test${items}')"><i class="fas fa-trash"></i></span>
                 </div>
                 <div class="form_objects">
                     <label for="email">Argc</label>
@@ -51,24 +60,29 @@ function loadMoreTests() {
                 </div>
             </div>`;
 
+    // Append testcase element
     tasks.appendChild(div);
 }
 
-// Remove hidden test
+// Delete testcase
 function removeTest(test) {
+    // Get testcase
     let testDiv = document.getElementById(test);
+    // Remove testcase
     testDiv.remove();
+    // Decrease testcases
     items--;
+    // Check if testcases are more than 1
     if(items > 1) {
         let item = document.getElementById(`test${items}`);
+        // Make last questions remove icon visible
         item.getElementsByClassName('close')[0].style.display = 'block';
     }
 }
 
-// Add new question
+// Submit new question
 document.getElementById('newQuestion').onsubmit = function (event) {
     event.preventDefault();
-
 
     let formData = new FormData(this);
     let obj = {
@@ -92,13 +106,13 @@ document.getElementById('newQuestion').onsubmit = function (event) {
     if(formData.get('argv') !== "") {
         obj.question.argv = formData.get('argv').split(' ');
 
+        // Replace underscore with white space
         for(let i = 0; i < obj.question.argv.length; i++) {
             obj.question.argv[i] = obj.question.argv[i].replaceAll('_', ' ');
         }
     }
 
-
-
+    // Loop through testcases to get the data
     for(let i = 1; i <= items; i++) {
         let tempObj = {
             argc: formData.get('args' + i).split(' '),
@@ -106,20 +120,25 @@ document.getElementById('newQuestion').onsubmit = function (event) {
             correct: formData.get('complete' + i),
         }
 
+        // Replace underscore with white space
         for(let i = 0; i < tempObj.argv.length; i++) {
             tempObj.argv[i] = tempObj.argv[i].replaceAll('_', ' ');
         }
 
+        // Push data to validation testcases
         obj.question.validation.testCases.push(tempObj);
     }
 
-
+    // Check if question is of type test
     if(document.querySelector("[test=true]") !== null) {
-        console.log(JSON.stringify(obj))
+        // Set question data to cookie
         setCookie(obj.question.question, encodeURIComponent(JSON.stringify(obj.question)), 1);
+        // Open question on test page
         window.open('test?test=' + obj.question.question, '_block');
+        // Remove test attribute
         document.querySelector("[test=true]").removeAttribute('test');
     }else {
+        // Submit question to firebase
         fetch('/questions/new', {
             method: 'POST',
             body: JSON.stringify(obj),
@@ -129,14 +148,18 @@ document.getElementById('newQuestion').onsubmit = function (event) {
                 "CSRF-Token": Cookies.get("XSRF-TOKEN"),
             }
         }).then(d => {
+            // Check if status is 200
             if(d.status === 200) {
+                // Redirect to admin page
                 window.location.assign('/admin')
             }else{
+                // If error - output error
                 let error = document.getElementById('error_txt');
                 error.innerText = "Something Went Wrong";
                 error.scrollIntoView();
             }
         }).catch(err => {
+            // If error - output error
             let error = document.getElementById('error_txt');
             error.innerText = err.message;
             error.scrollIntoView();

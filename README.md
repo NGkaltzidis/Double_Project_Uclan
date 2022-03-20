@@ -49,6 +49,15 @@ These instructions will get you a copy of the project up and running on your loc
     node server.js
 ```
 
+    Launch link: http://localhost:3000
+
 ## Resources
 
-Add links to external resources for this project, such as CI server, bug tracker, etc.
+#### Firebase Account
+        Since i use my personal information for the gmail account that was used for firebase 
+        i didnt include the email of that account but I can provide you the gmail account if
+        it will be neccessary. Just ask for it :)
+
+## Administrator account
+        Username: admin@admin.com
+        Password: adminadmin

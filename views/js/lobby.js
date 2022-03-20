@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 let lobby_log = document.getElementById('lobby_log');
 let chat_doc = document.getElementById('chat')
 let chat_msg = document.getElementById('chat_msg');

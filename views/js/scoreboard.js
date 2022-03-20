@@ -1,3 +1,9 @@
+/*
+    Student: Nikolaos Gkaltzidis
+    email: ngkaltzidis@uclan.ac.uk
+    Registration number: G20794185
+ */
+
 let container = document.getElementsByClassName('scoreboard')[0];
 loadData();
 setInterval(loadData, 10000)
